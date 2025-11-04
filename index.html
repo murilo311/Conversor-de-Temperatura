@@ -31,3 +31,64 @@
         <script src="script.js"></script>
  </body>
  </html>
+
+ body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: orange;
+}
+input, select, button{
+    margin: 10px;
+    padding: 8px;
+    background-color:purple;
+}
+#resultado{
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: blue;
+}
+
+function convertTemperatura() {
+  const temperature =
+  parseFloat(document.getElementById('temperature').value);
+
+  const unit = 
+  document.getElementById('unit').value;
+
+  if (isNaN(temperature)){
+    alert('Por favor, digite um número válido para a temperatura')
+    return;
+  }
+
+  let celsius,fahrenheit,kelvin;
+
+  switch(unit){
+    case'celsius':
+    celsius = temperature;
+    fahrenheit = (celsius * 9/5) + 32;
+    kelvin = celsius + 273.15;
+
+    break;
+    case'fahrenheit':
+    fahrenheit = temperature;
+    celsius = (fahrenheit - 32) * 5/9;
+    kelvin = (fahrenheit - 32) * 5/9 + 273.15;
+
+    break
+    case'kelvin':
+    kelvin = temperature;
+    celsius = kelvin - 273.15;
+    fahrenheit = (kelvin - 273.15) * 9/5 + 32;
+
+    break;
+    default:
+    alert('Unidade inválida');
+    return;
+  }
+
+  document.getElementById('resultCelsius').innerText = `Celsius: ${celsius.toFixed(2)}°C`;
+  document.getElementById('resultFahrenheit').innerText =  `Fahrenheit: ${fahrenheit.toFixed(2)}°F`;
+  document.getElementById('resultKelvin').innerText =  `Kelvin: ${kelvin.toFixed(2)} K`;
+  
+}
