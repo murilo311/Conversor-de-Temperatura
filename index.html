@@ -31,7 +31,7 @@
         <script src="script.js"></script>
  </body>
  </html>
-
+<style>
  body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -48,7 +48,9 @@ input, select, button{
     font-size: 18px;
     background-color: blue;
 }
+</style>
 
+<script>
 function convertTemperatura() {
   const temperature =
   parseFloat(document.getElementById('temperature').value);
@@ -92,3 +94,6 @@ function convertTemperatura() {
   document.getElementById('resultKelvin').innerText =  `Kelvin: ${kelvin.toFixed(2)} K`;
   
 }
+</script>
+
+
